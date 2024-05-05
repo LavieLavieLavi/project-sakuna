@@ -10,7 +10,7 @@ public class DetectCollider : MonoBehaviour
     // Speed of the movement
     public float moveSpeed = 2f;
     // Target y-position
-    public float targetY = 8f;
+    public float targetY;
 
     // This function is called when another collider enters the trigger zone of the static GameObject
     private IEnumerator OnTriggerEnter(Collider other)
@@ -40,7 +40,7 @@ public class DetectCollider : MonoBehaviour
     private IEnumerator OnTriggerExit(Collider other)
     {
         // Get the new target y-position for when the GameObject exits the trigger zone
-        float newTargetY = targetY - 8f; // Example: Decrease y-position by 8 units
+        float newTargetY = targetY - targetY + 1; // Example: Decrease y-position by 8 units
 
         // Check if the colliding GameObject has a specific tag or component to identify it
         if (other.CompareTag("Wall"))
